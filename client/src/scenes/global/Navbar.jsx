@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Badge, Box, IconButton } from "@mui/material";
 import {
-  PersonOutline,
   ShoppingBagOutlined,
   MenuOutlined,
   SearchOutlined,
@@ -9,6 +8,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { shades } from "../../theme";
 import { setIsCartOpen } from "../../state";
+import User from "./User";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -37,10 +37,12 @@ function Navbar() {
       >
         <Box
           onClick={() => navigate("/")}
-          sx={{ "&:hover": { cursor: "pointer" } }}
+          sx={{ "&:hover": { cursor: "pointer" }
+        }
+        }
           color={shades.secondary[500]}
         >
-          ECOMMER
+          FASHIONISTA
         </Box>
         <Box
           display="flex"
@@ -52,7 +54,7 @@ function Navbar() {
             <SearchOutlined />
           </IconButton>
           <IconButton sx={{ color: "black" }}>
-            <PersonOutline />
+            <User />
           </IconButton>
           <Badge
             badgeContent={cart.length}
