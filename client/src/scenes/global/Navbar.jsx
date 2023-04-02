@@ -35,6 +35,7 @@ function Navbar() {
         justifyContent="space-between"
         alignItems="center"
       >
+        
         <Box
           onClick={() => navigate("/")}
           sx={{ "&:hover": { cursor: "pointer" }

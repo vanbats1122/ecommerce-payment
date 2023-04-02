@@ -2,13 +2,14 @@ import { FavoriteBorderOutlined, HelpOutlineOutlined, LogoutOutlined, PersonOutl
 import { Button, ClickAwayListener, Grow, IconButton, MenuItem, MenuList, Paper, Popper, Typography } from '@mui/material';
 import { Box, Stack } from '@mui/system';
 import React, { useState } from 'react'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 
 const User = () => {
 
     const user = true;
-    
+    const navigate = useNavigate();
+
     const [ profileOpen, setProfileOpen ] = useState(false);
     const anchorRef = React.useRef(null);
 
@@ -78,8 +79,8 @@ const User = () => {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
+                    <MenuItem onClick={() => navigate("/account")}>Profile</MenuItem>
+                    <MenuItem onClick={handleClose}>Wishlist<FavoriteBorderOutlined style={} /></MenuItem>
                     <MenuItem onClick={handleClose}>Logout</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
