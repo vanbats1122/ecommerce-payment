@@ -1,9 +1,10 @@
-import { FavoriteBorderOutlined, HelpOutlineOutlined, LogoutOutlined, PersonOutline, SettingsOutlined, ShoppingBagOutlined } from '@mui/icons-material';
-import { Button, ClickAwayListener, Grow, IconButton, MenuItem, MenuList, Paper, Popper, Typography } from '@mui/material';
-import { Box, Stack } from '@mui/system';
+import { FavoriteBorderOutlined, PersonOutline } from '@mui/icons-material';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { Button, ClickAwayListener, Grow, MenuItem, MenuList, Paper, Popper, styled } from '@mui/material';
 import React, { useState } from 'react'
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
+import { shades } from "../../theme";
 
 const User = () => {
 
@@ -79,9 +80,47 @@ const User = () => {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={() => navigate("/account")}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>Wishlist<FavoriteBorderOutlined style={} /></MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem 
+                      onClick={() => navigate("/account")}
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between'
+                      }}
+                    >
+                      Profile
+                    <PersonOutline 
+                      sx={{
+                        "&:hover": {color: shades.secondary[500] }
+                    }}
+                     />
+                    </MenuItem>
+                    <MenuItem 
+                      onClick={handleClose}
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between'
+                      }}
+                    >
+                      Wishlist
+                    <FavoriteBorderOutlined
+                       sx={{
+                        "&:hover": {color: shades.secondary[500] }
+                    }}
+                    />
+                    </MenuItem>
+                    <MenuItem 
+                      onClick={handleClose}
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between'
+                      }}
+                    >Logout
+                    <LogoutIcon 
+                      sx={{
+                        "&:hover": {color: shades.secondary[500] }
+                    }}
+                    />
+                    </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
